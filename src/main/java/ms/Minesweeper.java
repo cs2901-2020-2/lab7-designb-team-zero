@@ -8,22 +8,6 @@ public class Minesweeper {
 
     static final Logger logger = Logger.getLogger(Minesweeper.class.getName());
 
-    public  static int[][] generateBoard(int n){
-        int[][] board = new int[n][n];
-        SecureRandom random = new SecureRandom();
-
-        for (int row = 0; row < n; row++){
-            for (int column = 0; column < n; column++){
-                board[row][column] = 0;
-                int randomNum = random.nextInt(5);
-                if (randomNum == 4){
-                    board[row][column] = 1;
-                }
-            }
-        }
-        return board;
-    }
-
     public static int countMines(int[][] board,int n){
         int count = 0;
         for (int row = 0; row < n; row++){
@@ -126,18 +110,4 @@ public class Minesweeper {
         return true;
     }
 
-    public static void main(String[] args){
-        logger.info("Tamaño del tablero: ");
-        int n = inputBoardSize();
-        logger.info("\n");
-        int[][] board = generateBoard(n);
-        int count = countMines(board,n);
-
-        boolean win = play(count, board, n);
-        if (win){
-            logger.info("WINNER!!");
-        }else{
-            logger.info("LOSSER");
-        }
-    }
 }
