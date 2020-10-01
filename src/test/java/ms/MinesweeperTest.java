@@ -1,6 +1,6 @@
+package ms;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
